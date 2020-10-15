@@ -48,6 +48,10 @@ function numberPress(number) {
   }
 }
 
+function strip(number) {
+  return (parseFloat(number.toPrecision(12)));
+}
+
 function operationPress(op) {
   let localOperationMemory = display.value;
 
@@ -74,6 +78,7 @@ function operationPress(op) {
     else {
       MemoryCurrentNumber = +localOperationMemory;
     }
+    MemoryCurrentNumber = strip(MemoryCurrentNumber)
     display.value = MemoryCurrentNumber;
     MemoryPendingOperation = op;
   }
@@ -92,6 +97,7 @@ function decimal(argument) {
   }
   display.value = localDecimalMemory;
 }
+
 
 function clear(id) {
   if (id === 'ce') {
